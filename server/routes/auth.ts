@@ -2,8 +2,7 @@ import jwt from "jsonwebtoken";
 import express from 'express';
 import { authenticateJwt, SECRET } from "../middleware/";
 import { User } from "../db";
-import { signupInput } from "@100xdevs/common"
-
+import {signupInput} from "@aashim/common"
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
@@ -13,9 +12,9 @@ router.post('/signup', async (req, res) => {
         msg: "error"
       });
     }
-    const username = parsedInput.data.username 
-    const password = parsedInput.data.password 
-    
+    const username = parsedInput.data.username
+    const password = parsedInput.data.password
+
     const user = await User.findOne({ username: parsedInput.data.username });
     if (user) {
       res.status(403).json({ message: 'User already exists' });
@@ -26,7 +25,7 @@ router.post('/signup', async (req, res) => {
       res.json({ message: 'User created successfully', token });
     }
   });
-  
+
   router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username, password });

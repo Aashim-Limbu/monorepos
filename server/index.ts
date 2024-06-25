@@ -1,22 +1,22 @@
-// import express from "express";
-// import mongoose from "mongoose";
-// const app = express();
+import express from "express";
+import mongoose from "mongoose";
+const app = express();
 
-// const port = 3000;
-// import authRoutes from "./routes/auth";
-// import todoRoutes from "./routes/todo";
-// import cors from "cors";
+const port = 3000;
+import authRoutes from "./routes/auth";
+import todoRoutes from "./routes/todo";
+import cors from "cors";
 
-// app.use(cors());
-// app.use(express.json());
-// app.use("/auth", authRoutes);
-// app.use("/todo", todoRoutes);
+app.use(cors());
+app.use(express.json());
+app.use("/auth", authRoutes);
+app.use("/todo", todoRoutes);
 
-// app.listen(port, () => {
-//     console.log(`Example app listening at http://localhost:${port}`)
-// })
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
 
-// mongoose.connect('mongodb://localhost:27017/courses', { dbName: "courses" });
+mongoose.connect('mongodb://localhost:27017/courses', { dbName: "courses" });
 
 // import { z } from "zod";
 // import express, { Request, Response } from "express";
@@ -29,10 +29,10 @@
 // 	email: z.string().email({ message: "Invalid email" }).optional(),
 // });
 // type zodCompileTimeValidator = z.infer<typeof ZodRuntimeValidator>;
-// // const user: zodCompileTimeValidator = {
-// // 	name: "Aashim",
-// // 	age: 5,
-// // };
+// const user: zodCompileTimeValidator = {
+// 	name: "Aashim",
+// 	age: 5,
+// };
 
 // const router = express.Router();
 // const UserController = async (req: Request, res: Response) => {
@@ -60,4 +60,4 @@
 // app.use("/api/v1/user", router);
 // app.listen(3000, "127.0.0.1", () => {
 // 	console.log("Server is listening on port 3000");
-});
+// });
