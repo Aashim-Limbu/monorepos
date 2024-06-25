@@ -6,16 +6,16 @@ import {signupInput} from "@aashim/common"
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-    let parsedInput = signupInput.safeParse(req.body)
-    if (!parsedInput.success) {
+    const {success,data,error} = signupInput.safeParse(req.body)
+    if (!success) {
       return res.status(403).json({
-        msg: "error"
+        msg: error
       });
     }
-    const username = parsedInput.data.username
-    const password = parsedInput.data.password
+    const username = data.username
+    const password = data.password
 
-    const user = await User.findOne({ username: parsedInput.data.username });
+    const user = await User.findOne({ username: data.username });
     if (user) {
       res.status(403).json({ message: 'User already exists' });
     } else {
