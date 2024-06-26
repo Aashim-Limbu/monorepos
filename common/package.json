@@ -8,8 +8,5 @@
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"zod": "^3.21.4"
-	}
+	"license": "ISC"
 }
